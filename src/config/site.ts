@@ -121,7 +121,7 @@ export const services: ServiceItem[] = [
   {
     id: 'production',
     number: '02',
-    headline: 'Craft you can see.\nFeeling you can't ignore.',
+    headline: "Craft you can see.\nFeeling you can't ignore.",
     description:
       'Product and commercial photography, promotional videos, reels and corporate films for food, hospitality, real estate, automotive, fashion and education.',
     includes: [
@@ -257,8 +257,8 @@ export const faqItems = [
 // Contact Section
 // ============================================================================
 export const contactContent = {
-  heading: 'Let's make your next idea matter.',
-  subheading: 'Start a project.',
+  heading: "Let's make your next idea matter.",
+  subheading: "Start a project.",
 } as const;
 
 // ============================================================================
@@ -268,3 +268,4 @@ export const analyticsConfig = {
   googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID || '',
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || '',
 } as const;
+

@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #080808;
+    --background-secondary: #111111;
+    --foreground: #F5F5F5;
+    --foreground-muted: #A0A0A0;
+    --accent: #A78BFA;
+    --accent-highlight: #C4B5FD;
+    --border-subtle: rgba(255, 255, 255, 0.12);
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #080808;
+    color: #F5F5F5;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #080808;
+    color: #F5F5F5;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    selection-background-color: #A78BFA;
+    selection-color: #080808;
+  }
+
+  ::selection {
+    background-color: #A78BFA;
+    color: #080808;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.4);
+}
+
+/* Subtle cinematic noise overlay */
+.bg-film-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Subtle glowing accent gradient */
+.ambient-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(167, 139, 250, 0.08) 0%, transparent 60%);
+}
+
+/* Keyframes for subtle entrance and scroll pulses */
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes marqueeSlow {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-indicator {
+  animation: subtlePulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marqueeSlow 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

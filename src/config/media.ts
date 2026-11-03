@@ -125,3 +125,4 @@ export const teamMembers: TeamMember[] = Array.from({ length: 8 }, (_, i) => ({
   photo: `/media/team/member-${i + 1}.jpg`,
   isPlaceholder: true,
 }));
+
