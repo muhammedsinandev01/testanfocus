@@ -7,6 +7,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { navLinks, siteConfig } from '@/config/site';
 import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
@@ -66,21 +67,35 @@ export default function Navigation() {
         )}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between">
-          {/* Brand Wordmark */}
+          {/* Brand Logo & Wordmark Lockup */}
           <Link
             href="/"
             onClick={() => handleNavClick('Brand Logo')}
-            className="group flex items-center gap-3 select-none"
+            className="group flex items-center gap-3.5 select-none"
             aria-label="AN FOCUS Home"
           >
-            <div className="relative flex items-center">
-              <span className="font-mono text-sm md:text-base font-semibold tracking-[0.28em] text-[#F5F5F5] uppercase group-hover:text-[#A78BFA] transition-colors duration-300">
-                AN FOCUS
-              </span>
-              <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-[#A78BFA] opacity-75 group-hover:scale-125 transition-transform duration-300" />
+            <div className="relative flex items-center gap-3">
+              <div className="relative h-8 w-8 sm:h-9 sm:w-9 shrink-0 overflow-hidden">
+                <Image
+                  src="/logo-icon.png"
+                  alt="AN FOCUS Emblem"
+                  width={72}
+                  height={72}
+                  priority
+                  className="h-full w-full object-contain filter drop-shadow-[0_0_12px_rgba(167,139,250,0.35)] transition-transform duration-700 ease-out group-hover:rotate-90 group-hover:scale-110"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-display text-base md:text-lg font-bold tracking-[0.18em] text-[#F5F5F5] uppercase group-hover:text-[#C4B5FD] transition-colors leading-none">
+                  AN FOCUS
+                </span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#A78BFA] mt-1">
+                  CREATIVE STUDIO
+                </span>
+              </div>
             </div>
-            <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-widest text-[#A0A0A0]/60 pl-2 border-l border-white/[0.1]">
-              STUDIO 2027
+            <span className="hidden lg:inline-block font-mono text-[10px] uppercase tracking-widest text-[#A0A0A0]/50 pl-3 border-l border-white/[0.1]">
+              2027
             </span>
           </Link>
 
@@ -154,7 +169,24 @@ export default function Navigation() {
             : 'opacity-0 pointer-events-none -translate-y-4'
         )}
       >
-        <div className="flex flex-col gap-8 mt-12">
+        <div className="flex flex-col gap-8 mt-6">
+          <div className="flex items-center gap-3 pb-6 border-b border-white/[0.08]">
+            <Image
+              src="/logo-icon.png"
+              alt="AN FOCUS"
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain drop-shadow-[0_0_12px_rgba(167,139,250,0.4)]"
+            />
+            <div>
+              <span className="font-display text-lg font-bold tracking-widest text-[#F5F5F5] block">
+                AN FOCUS
+              </span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#A78BFA]">
+                STUDIO &bull; KERALA
+              </span>
+            </div>
+          </div>
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A0A0A0]/60">
             Navigation
           </span>

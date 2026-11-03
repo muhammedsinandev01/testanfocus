@@ -7,6 +7,7 @@
 // ============================================================================
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { heroContent } from '@/config/site';
 import { heroMedia } from '@/config/media';
 import { trackEvent } from '@/lib/analytics';
@@ -30,6 +31,17 @@ export default function Hero() {
         {/* Generative ambient gradient layers */}
         <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#A78BFA]/10 to-transparent blur-[140px] pointer-events-none" />
         <div className="absolute -bottom-[20%] -right-[10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-tl from-[#7C3AED]/8 via-[#A78BFA]/5 to-transparent blur-[160px] pointer-events-none" />
+
+        {/* Ambient Branded Vortex Hologram Mark */}
+        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] sm:w-[600px] lg:w-[750px] aspect-square opacity-[0.06] select-none pointer-events-none">
+          <Image
+            src="/logo-icon.png"
+            alt="AN FOCUS Brand Mark"
+            fill
+            priority
+            className="object-contain animate-[spin_120s_linear_infinite]"
+          />
+        </div>
 
         {/* Abstract cinematic grid & lines */}
         <div

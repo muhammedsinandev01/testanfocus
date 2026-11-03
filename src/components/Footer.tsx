@@ -7,6 +7,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { navLinks, siteConfig } from '@/config/site';
 import { trackEvent } from '@/lib/analytics';
 import { ArrowUp } from 'lucide-react';
@@ -47,13 +48,24 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-6">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 group select-none"
+              className="inline-flex items-center gap-3.5 group select-none"
               aria-label="AN FOCUS Home"
             >
-              <span className="font-mono text-xl font-bold tracking-[0.25em] text-[#F5F5F5] uppercase group-hover:text-[#A78BFA] transition-colors">
-                AN FOCUS
-              </span>
-              <span className="h-2 w-2 rounded-full bg-[#A78BFA]" />
+              <Image
+                src="/logo-icon.png"
+                alt="AN FOCUS"
+                width={40}
+                height={40}
+                className="h-9 w-9 object-contain drop-shadow-[0_0_12px_rgba(167,139,250,0.3)] group-hover:rotate-45 transition-transform duration-500"
+              />
+              <div className="flex flex-col">
+                <span className="font-display text-xl font-bold tracking-[0.2em] text-[#F5F5F5] uppercase group-hover:text-[#A78BFA] transition-colors leading-none">
+                  AN FOCUS
+                </span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#A78BFA] mt-1">
+                  A.N. INDUSTRIES BRAND
+                </span>
+              </div>
             </Link>
 
             <p className="text-sm font-light text-[#A0A0A0] leading-relaxed max-w-sm">
