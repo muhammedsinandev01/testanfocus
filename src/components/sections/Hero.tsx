@@ -80,9 +80,8 @@ export default function Hero() {
             poster={heroMedia.poster}
             onLoadedData={() => setVideoLoaded(true)}
             onError={() => setVideoFailed(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-              videoLoaded ? 'opacity-40' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-40' : 'opacity-0'
+              }`}
           >
             <source src={heroMedia.src} type="video/mp4" />
           </video>

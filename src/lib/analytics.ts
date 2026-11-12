@@ -63,3 +63,4 @@ export function trackEvent(eventName: EventType, payload?: EventPayload): void {
     }
   }
 }
+

@@ -33,3 +33,4 @@ This directory holds the media assets for the website. The frontend has been arc
 1. Save your files with the exact names listed above in their respective folders.
 2. If you prefer custom file names, simply update the paths in `src/config/media.ts`.
 3. If no file is placed in a folder, the site automatically renders an elegant abstract architectural placeholder — ensuring the design never breaks or looks broken.
+

@@ -58,26 +58,23 @@ export default function HowWeWork() {
                 <div
                   key={step.number}
                   onMouseEnter={() => setActiveStep(idx)}
-                  className={`relative p-8 rounded-sm border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[320px] ${
-                    isActive
+                  className={`relative p-8 rounded-sm border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[320px] ${isActive
                       ? 'bg-[#111111] border-[#A78BFA]/60 shadow-[0_10px_30px_rgba(167,139,250,0.1)]'
                       : 'bg-[#111111]/40 border-white/[0.08] hover:border-white/20'
-                  }`}
+                    }`}
                 >
                   {/* Step Top Index & Status */}
                   <div>
                     <div className="flex items-center justify-between mb-8">
                       <span
-                        className={`font-mono text-xs uppercase tracking-[0.25em] ${
-                          isActive ? 'text-[#A78BFA] font-semibold' : 'text-[#A0A0A0]/60'
-                        }`}
+                        className={`font-mono text-xs uppercase tracking-[0.25em] ${isActive ? 'text-[#A78BFA] font-semibold' : 'text-[#A0A0A0]/60'
+                          }`}
                       >
                         PHASE {step.number}
                       </span>
                       <div
-                        className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                          isActive ? 'bg-[#A78BFA] scale-125' : 'bg-white/20'
-                        }`}
+                        className={`h-2 w-2 rounded-full transition-all duration-300 ${isActive ? 'bg-[#A78BFA] scale-125' : 'bg-white/20'
+                          }`}
                       />
                     </div>
 

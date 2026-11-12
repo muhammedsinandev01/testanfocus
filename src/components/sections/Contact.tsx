@@ -222,9 +222,8 @@ export default function Contact() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="e.g. Rahul Menon"
-                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${
-                        errors.name ? 'border-red-500/60' : 'border-white/[0.12]'
-                      }`}
+                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${errors.name ? 'border-red-500/60' : 'border-white/[0.12]'
+                        }`}
                     />
                     {errors.name && (
                       <span className="text-[11px] text-red-400 mt-1 block">{errors.name}</span>
@@ -258,9 +257,8 @@ export default function Contact() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="rahul@example.com"
-                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${
-                        errors.email ? 'border-red-500/60' : 'border-white/[0.12]'
-                      }`}
+                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${errors.email ? 'border-red-500/60' : 'border-white/[0.12]'
+                        }`}
                     />
                     {errors.email && (
                       <span className="text-[11px] text-red-400 mt-1 block">{errors.email}</span>
@@ -277,9 +275,8 @@ export default function Contact() {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="+91 9895401085 / +971..."
-                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${
-                        errors.phone ? 'border-red-500/60' : 'border-white/[0.12]'
-                      }`}
+                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${errors.phone ? 'border-red-500/60' : 'border-white/[0.12]'
+                        }`}
                     />
                     {errors.phone && (
                       <span className="text-[11px] text-red-400 mt-1 block">{errors.phone}</span>
@@ -352,9 +349,8 @@ export default function Contact() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Tell us about the event scale, film deliverables, website vision, or digital marketing goals..."
-                    className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors resize-none ${
-                      errors.message ? 'border-red-500/60' : 'border-white/[0.12]'
-                    }`}
+                    className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors resize-none ${errors.message ? 'border-red-500/60' : 'border-white/[0.12]'
+                      }`}
                   />
                   {errors.message && (
                     <span className="text-[11px] text-red-400 mt-1 block">{errors.message}</span>
