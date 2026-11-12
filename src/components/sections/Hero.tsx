@@ -32,17 +32,6 @@ export default function Hero() {
         <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#A78BFA]/10 to-transparent blur-[140px] pointer-events-none" />
         <div className="absolute -bottom-[20%] -right-[10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-tl from-[#7C3AED]/8 via-[#A78BFA]/5 to-transparent blur-[160px] pointer-events-none" />
 
-        {/* Ambient Branded Vortex Hologram Mark */}
-        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-[420px] sm:w-[600px] lg:w-[750px] aspect-square opacity-[0.06] select-none pointer-events-none">
-          <Image
-            src="/logo-icon.png"
-            alt="AN FOCUS Brand Mark"
-            fill
-            priority
-            className="object-contain animate-[spin_120s_linear_infinite]"
-          />
-        </div>
-
         {/* Abstract cinematic grid & lines */}
         <div
           className="absolute inset-0 opacity-[0.035]"
@@ -76,9 +65,8 @@ export default function Hero() {
             alt="AN FOCUS Creative Experience"
             fill
             priority
-            className={`object-cover transition-opacity duration-1000 ${
-              videoLoaded ? 'opacity-20' : 'opacity-40'
-            }`}
+            className={`object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-20' : 'opacity-40'
+              }`}
           />
         </div>
 
@@ -93,9 +81,8 @@ export default function Hero() {
             poster={heroMedia.poster}
             onLoadedData={() => setVideoLoaded(true)}
             onError={() => setVideoFailed(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-              videoLoaded ? 'opacity-40' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-40' : 'opacity-0'
+              }`}
           >
             <source src={heroMedia.src} type="video/mp4" />
           </video>
