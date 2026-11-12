@@ -21,6 +21,11 @@ export const siteConfig = {
     location: 'Kerala, India',
   },
 
+  booking: {
+    url: 'https://booking.anfocus.in',
+    label: 'Book Event',
+  },
+
   social: {
     instagram: 'https://instagram.com/anfocusevents',
   },

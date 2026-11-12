@@ -98,8 +98,8 @@ export default function Services() {
                         </div>
                       </div>
 
-                      {/* Action Button */}
-                      <div className="mt-10">
+                      {/* Action Buttons */}
+                      <div className="mt-10 flex flex-wrap items-center gap-4">
                         <a
                           href={service.cta.href}
                           onClick={() =>
@@ -113,6 +113,24 @@ export default function Services() {
                           <span>{service.cta.label}</span>
                           <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </a>
+
+                        {service.id === 'events' && (
+                          <a
+                            href="https://booking.anfocus.in"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() =>
+                              trackEvent('cta_click', {
+                                category: 'services',
+                                label: 'events: Online Ticket Booking',
+                              })
+                            }
+                            className="group inline-flex items-center gap-2.5 px-6 py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-all duration-300 shadow-[0_0_20px_rgba(167,139,250,0.25)]"
+                          >
+                            <span>Book Tickets Online</span>
+                            <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                          </a>
+                        )}
                       </div>
                     </ScrollReveal>
                   </div>

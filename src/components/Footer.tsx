@@ -151,10 +151,18 @@ export default function Footer() {
                 {siteConfig.contact.phones[0]}
               </a>
               <a
+                href="https://booking.anfocus.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[#A78BFA] hover:text-[#C4B5FD] transition-colors"
+              >
+                Online Booking Portal ↗
+              </a>
+              <a
                 href={`https://wa.me/${siteConfig.contact.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-[#A78BFA] hover:underline"
+                className="block text-[#A0A0A0] hover:text-[#A78BFA] transition-colors"
               >
                 WhatsApp Direct Link &rarr;
               </a>

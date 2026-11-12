@@ -137,7 +137,7 @@ export default function Hero() {
         </p>
 
         {/* Action Buttons */}
-        <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+        <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 flex-wrap">
           <a
             href={heroContent.cta.primary.href}
             onClick={() =>
@@ -146,10 +146,26 @@ export default function Hero() {
                 label: 'Brief us from anywhere',
               })
             }
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-all duration-300 shadow-[0_0_30px_rgba(167,139,250,0.2)]"
+            className="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-all duration-300 shadow-[0_0_30px_rgba(167,139,250,0.25)]"
           >
             <span>{heroContent.cta.primary.label}</span>
             <ArrowUpRight className="ml-2 h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+          </a>
+
+          <a
+            href="https://booking.anfocus.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent('cta_click', {
+                category: 'hero',
+                label: 'Book Events / Tickets',
+              })
+            }
+            className="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5] border border-[#A78BFA]/50 bg-[#A78BFA]/10 rounded-sm hover:bg-[#A78BFA]/20 hover:border-[#A78BFA] transition-all duration-300"
+          >
+            <span>Book Events / Tickets</span>
+            <ArrowUpRight className="ml-2 h-4 w-4 text-[#A78BFA] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </a>
 
           <a
@@ -160,7 +176,7 @@ export default function Hero() {
                 label: 'See our work',
               })
             }
-            className="group inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5] border border-white/[0.16] rounded-sm hover:border-white/40 hover:bg-white/[0.04] transition-all duration-300"
+            className="group inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] text-[#A0A0A0] border border-white/[0.16] rounded-sm hover:text-[#F5F5F5] hover:border-white/40 hover:bg-white/[0.04] transition-all duration-300"
           >
             <span>{heroContent.cta.secondary.label}</span>
           </a>

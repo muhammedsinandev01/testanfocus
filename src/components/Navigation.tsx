@@ -105,11 +105,24 @@ export default function Navigation() {
         </nav>
 
         {/* Right Action */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href={siteConfig.booking.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => handleNavClick('Header Book Tickets')}
+            className="relative inline-flex items-center justify-center px-4 py-2.5 text-[11px] font-mono uppercase tracking-[0.18em] text-[#080808] bg-[#A78BFA] hover:bg-[#C4B5FD] font-semibold rounded-sm transition-all duration-300 select-none shadow-[0_0_20px_rgba(167,139,250,0.3)] group"
+          >
+            <span>Book Tickets</span>
+            <span className="ml-1.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+              ↗
+            </span>
+          </a>
+
           <a
             href="#contact"
             onClick={() => handleNavClick('Header Start a Project')}
-            className="relative inline-flex items-center justify-center px-5 py-2.5 text-[11px] font-mono uppercase tracking-[0.18em] text-[#F5F5F5] border border-white/[0.18] rounded-sm hover:border-[#A78BFA] hover:text-[#A78BFA] hover:bg-white/[0.03] transition-all duration-300 select-none group"
+            className="relative inline-flex items-center justify-center px-4 py-2.5 text-[11px] font-mono uppercase tracking-[0.18em] text-[#F5F5F5] border border-white/[0.18] rounded-sm hover:border-[#A78BFA] hover:text-[#A78BFA] hover:bg-white/[0.03] transition-all duration-300 select-none group"
           >
             <span>Start a project</span>
             <span className="ml-2 transform group-hover:translate-x-0.5 transition-transform duration-200">
@@ -200,15 +213,25 @@ export default function Navigation() {
     </div>
 
   {/* Mobile Menu Footer Info */ }
-  <div className="flex flex-col gap-6 pt-8 border-t border-white/[0.08]">
+  <div className="flex flex-col gap-4 pt-8 border-t border-white/[0.08]">
+    <a
+      href={siteConfig.booking.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => handleNavClick('Mobile Menu Book Tickets')}
+      className="w-full text-center py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-colors flex items-center justify-center gap-2"
+    >
+      <span>Book Tickets / Events</span>
+      <span>↗</span>
+    </a>
     <a
       href="#contact"
       onClick={() => handleNavClick('Mobile Menu CTA')}
-      className="w-full text-center py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-colors"
+      className="w-full text-center py-3.5 text-xs font-mono uppercase tracking-[0.2em] border border-white/[0.2] text-[#F5F5F5] font-semibold rounded-sm hover:border-[#A78BFA] hover:text-[#A78BFA] transition-colors"
     >
       Start a project &rarr;
     </a>
-    <div className="flex justify-between items-center text-[11px] font-mono text-[#A0A0A0]/60">
+    <div className="flex justify-between items-center text-[11px] font-mono text-[#A0A0A0]/60 pt-2">
       <span>{siteConfig.contact.location}</span>
       <a
         href={`https://wa.me/${siteConfig.contact.whatsapp}`}
