@@ -69,8 +69,21 @@ export default function Hero() {
           }}
         />
 
+        {/* Cinematic Hero Background Image (Poster/Fallback) */}
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src={heroMedia.poster || '/media/hero/hero-poster.jpg'}
+            alt="AN FOCUS Creative Experience"
+            fill
+            priority
+            className={`object-cover transition-opacity duration-1000 ${
+              videoLoaded ? 'opacity-20' : 'opacity-40'
+            }`}
+          />
+        </div>
+
         {/* Video Element Placeholder System */}
-        {!videoFailed && (
+        {!videoFailed && heroMedia.src && (
           <video
             data-hero-video
             autoPlay
@@ -80,8 +93,9 @@ export default function Hero() {
             poster={heroMedia.poster}
             onLoadedData={() => setVideoLoaded(true)}
             onError={() => setVideoFailed(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-40' : 'opacity-0'
-              }`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              videoLoaded ? 'opacity-40' : 'opacity-0'
+            }`}
           >
             <source src={heroMedia.src} type="video/mp4" />
           </video>
