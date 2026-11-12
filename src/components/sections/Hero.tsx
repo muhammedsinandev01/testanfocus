@@ -6,7 +6,6 @@
 // editorial headline reveal, and ambient futuristic motion.
 // ============================================================================
 
-import { useState } from 'react';
 import Image from 'next/image';
 import { heroContent } from '@/config/site';
 import { heroMedia } from '@/config/media';
@@ -14,9 +13,6 @@ import { trackEvent } from '@/lib/analytics';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 
 export default function Hero() {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [videoFailed, setVideoFailed] = useState(false);
-
   return (
     <section
       id="hero"
@@ -65,28 +61,10 @@ export default function Hero() {
             alt="AN FOCUS Creative Experience"
             fill
             priority
-            className={`object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-20' : 'opacity-40'
-              }`}
+            sizes="100vw"
+            className="object-cover opacity-35"
           />
         </div>
-
-        {/* Video Element Placeholder System */}
-        {!videoFailed && heroMedia.src && (
-          <video
-            data-hero-video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={heroMedia.poster}
-            onLoadedData={() => setVideoLoaded(true)}
-            onError={() => setVideoFailed(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-40' : 'opacity-0'
-              }`}
-          >
-            <source src={heroMedia.src} type="video/mp4" />
-          </video>
-        )}
 
         {/* Dark vignette overlay for optimal typography readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/70 to-[#080808]/40" />
