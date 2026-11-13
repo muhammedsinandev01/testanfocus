@@ -19,7 +19,7 @@ export default function Services() {
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 mb-20 md:mb-28">
         <ScrollReveal direction="up">
-          <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+          <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#B48BDF] mb-4">
             02 &mdash; SERVICES
           </span>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[#F5F5F5] uppercase">
@@ -61,7 +61,7 @@ export default function Services() {
                   >
                     <ScrollReveal direction="up">
                       {/* Chapter Indicator */}
-                      <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA] mb-6">
+                      <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-[#B48BDF] mb-6">
                         <span>{service.number}</span>
                         <span>/</span>
                         <span>{service.id.toUpperCase()}</span>
@@ -88,7 +88,7 @@ export default function Services() {
                               key={item}
                               className="flex items-center gap-2 text-xs sm:text-sm text-[#F5F5F5] font-light"
                             >
-                              <CheckCircle2 className="h-3.5 w-3.5 text-[#A78BFA] shrink-0" />
+                              <CheckCircle2 className="h-3.5 w-3.5 text-[#B48BDF] shrink-0" />
                               <span>{item}</span>
                             </div>
                           ))}
@@ -105,7 +105,7 @@ export default function Services() {
                               label: `${service.id}: ${service.cta.label}`,
                             })
                           }
-                          className="group inline-flex items-center gap-3 px-7 py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#111111] text-[#F5F5F5] border border-white/[0.18] rounded-sm hover:border-[#A78BFA] hover:text-[#A78BFA] transition-all duration-300"
+                          className="group inline-flex items-center gap-3 px-7 py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#111111] text-[#F5F5F5] border border-white/[0.18] rounded-sm hover:border-[#B48BDF] hover:text-[#B48BDF] transition-all duration-300"
                         >
                           <span>{service.cta.label}</span>
                           <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -122,7 +122,7 @@ export default function Services() {
                                 label: 'events: Online Ticket Booking',
                               })
                             }
-                            className="group inline-flex items-center gap-2.5 px-6 py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-all duration-300 shadow-[0_0_20px_rgba(167,139,250,0.25)]"
+                            className="group inline-flex items-center gap-2.5 px-6 py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#622D8E] text-white font-semibold rounded-sm hover:bg-[#7535A8] transition-all duration-300 shadow-[0_0_20px_rgba(180,139,223,0.25)]"
                           >
                             <span>Book Tickets Online</span>
                             <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

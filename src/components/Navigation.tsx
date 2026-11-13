@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { navLinks, siteConfig } from '@/config/site';
 import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
+import TicketTicker from '@/components/TicketTicker';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,11 +63,19 @@ export default function Navigation() {
           'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out',
           isVisible ? 'translate-y-0' : '-translate-y-full',
           isScrolled
-            ? 'bg-[#080808]/85 backdrop-blur-md border-b border-white/[0.08] py-4 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
-            : 'bg-transparent py-6 md:py-8'
+            ? 'bg-[#080808]/85 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
+            : 'bg-transparent'
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between">
+        {/* Scrolling "book your tickets" strip */}
+        <TicketTicker />
+
+        <div
+          className={cn(
+            'max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between transition-all duration-500',
+            isScrolled ? 'py-4' : 'py-5 md:py-6'
+          )}
+        >
           {/* Brand Logo & Wordmark Lockup */}
           <Link
             href="/"
@@ -76,12 +85,12 @@ export default function Navigation() {
           >
           <div className="relative flex items-center">
             <Image
-              src="/logo-full.png"
+              src="/logo-full-white.png"
               alt="AN FOCUS Creative Studio Logo"
               width={220}
               height={58}
               priority
-              className="h-8 sm:h-9 md:h-10 w-auto object-contain filter drop-shadow-[0_0_24px_rgba(167,139,250,0.4)] transition-transform duration-300 group-hover:scale-105"
+              className="h-8 sm:h-9 md:h-10 w-auto object-contain"
             />
           </div>
         </Link>
@@ -96,7 +105,7 @@ export default function Navigation() {
               className="font-mono text-xs uppercase tracking-[0.18em] text-[#A0A0A0] hover:text-[#F5F5F5] transition-colors duration-200 relative py-1 group"
             >
               {link.label}
-              <span className="absolute bottom-0 left-0 w-0 h-px bg-[#A78BFA] transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-[#B48BDF] transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
@@ -104,22 +113,9 @@ export default function Navigation() {
         {/* Right Action */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href={siteConfig.booking.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => handleNavClick('Header Book Tickets')}
-            className="relative inline-flex items-center justify-center px-4 py-2.5 text-[11px] font-mono uppercase tracking-[0.18em] text-[#080808] bg-[#A78BFA] hover:bg-[#C4B5FD] font-semibold rounded-sm transition-all duration-300 select-none shadow-[0_0_20px_rgba(167,139,250,0.3)] group"
-          >
-            <span>Book Tickets</span>
-            <span className="ml-1.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
-              ↗
-            </span>
-          </a>
-
-          <a
             href="#contact"
             onClick={() => handleNavClick('Header Start a Project')}
-            className="relative inline-flex items-center justify-center px-4 py-2.5 text-[11px] font-mono uppercase tracking-[0.18em] text-[#F5F5F5] border border-white/[0.18] rounded-sm hover:border-[#A78BFA] hover:text-[#A78BFA] hover:bg-white/[0.03] transition-all duration-300 select-none group"
+            className="relative inline-flex items-center justify-center px-4 py-2.5 text-[11px] font-mono uppercase tracking-[0.18em] text-[#F5F5F5] border border-white/[0.18] rounded-sm hover:border-[#B48BDF] hover:text-[#B48BDF] hover:bg-white/[0.03] transition-all duration-300 select-none group"
           >
             <span>Start a project</span>
             <span className="ml-2 transform group-hover:translate-x-0.5 transition-transform duration-200">
@@ -134,7 +130,7 @@ export default function Navigation() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
           aria-expanded={mobileMenuOpen}
-          className="md:hidden relative z-50 p-2 text-[#F5F5F5] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#A78BFA]"
+          className="md:hidden relative z-50 p-2 text-[#F5F5F5] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B48BDF]"
         >
           <div className="w-6 h-5 flex flex-col justify-between items-end">
             <span
@@ -172,23 +168,6 @@ export default function Navigation() {
   }
     >
     <div className="flex flex-col gap-8 mt-6">
-      <div className="flex items-center gap-3 pb-6 border-b border-white/[0.08]">
-        <Image
-          src="/logo-icon.png"
-          alt="AN FOCUS"
-          width={40}
-          height={40}
-          className="h-10 w-10 object-contain drop-shadow-[0_0_12px_rgba(167,139,250,0.4)]"
-        />
-        <div>
-          <span className="font-display text-lg font-bold tracking-widest text-[#F5F5F5] block">
-            AN FOCUS
-          </span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-[#A78BFA]">
-            STUDIO &bull; KERALA
-          </span>
-        </div>
-      </div>
       <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A0A0A0]/60">
         Navigation
       </span>
@@ -198,10 +177,10 @@ export default function Navigation() {
             key={link.label}
             href={link.href}
             onClick={() => handleNavClick(`Mobile ${link.label}`)}
-            className="group flex items-baseline justify-between text-3xl font-light tracking-tight text-[#F5F5F5] hover:text-[#A78BFA] transition-colors duration-200 border-b border-white/[0.06] pb-4"
+            className="group flex items-baseline justify-between text-3xl font-light tracking-tight text-[#F5F5F5] hover:text-[#B48BDF] transition-colors duration-200 border-b border-white/[0.06] pb-4"
           >
             <span>{link.label}</span>
-            <span className="font-mono text-xs text-[#A0A0A0]/40 group-hover:text-[#A78BFA] transition-colors">
+            <span className="font-mono text-xs text-[#A0A0A0]/40 group-hover:text-[#B48BDF] transition-colors">
               {String(idx + 1).padStart(2, '0')}
             </span>
           </a>
@@ -212,19 +191,9 @@ export default function Navigation() {
   {/* Mobile Menu Footer Info */ }
   <div className="flex flex-col gap-4 pt-8 border-t border-white/[0.08]">
     <a
-      href={siteConfig.booking.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => handleNavClick('Mobile Menu Book Tickets')}
-      className="w-full text-center py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-colors flex items-center justify-center gap-2"
-    >
-      <span>Book Tickets / Events</span>
-      <span>↗</span>
-    </a>
-    <a
       href="#contact"
       onClick={() => handleNavClick('Mobile Menu CTA')}
-      className="w-full text-center py-3.5 text-xs font-mono uppercase tracking-[0.2em] border border-white/[0.2] text-[#F5F5F5] font-semibold rounded-sm hover:border-[#A78BFA] hover:text-[#A78BFA] transition-colors"
+      className="w-full text-center py-3.5 text-xs font-mono uppercase tracking-[0.2em] border border-white/[0.2] text-[#F5F5F5] font-semibold rounded-sm hover:border-[#B48BDF] hover:text-[#B48BDF] transition-colors"
     >
       Start a project &rarr;
     </a>
@@ -234,7 +203,7 @@ export default function Navigation() {
         href={`https://wa.me/${siteConfig.contact.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-[#A78BFA] hover:underline"
+        className="text-[#B48BDF] hover:underline"
       >
         WhatsApp Us
       </a>

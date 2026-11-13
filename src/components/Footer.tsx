@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { navLinks, siteConfig } from '@/config/site';
 import { trackEvent } from '@/lib/analytics';
 import { ArrowUp } from 'lucide-react';
+import { InstagramIcon, FacebookIcon } from '@/components/ui/SocialIcons';
 
 export default function Footer() {
   const [keralaTime, setKeralaTime] = useState<string>('');
@@ -48,24 +49,19 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-6">
             <Link
               href="/"
-              className="inline-flex items-center gap-3.5 group select-none"
+              className="inline-flex flex-col gap-2 select-none"
               aria-label="AN FOCUS Home"
             >
               <Image
-                src="/logo-icon.png"
+                src="/logo-full-white.png"
                 alt="AN FOCUS"
-                width={40}
-                height={40}
-                className="h-9 w-9 object-contain drop-shadow-[0_0_12px_rgba(167,139,250,0.3)] group-hover:rotate-45 transition-transform duration-500"
+                width={220}
+                height={58}
+                className="h-10 w-auto object-contain"
               />
-              <div className="flex flex-col">
-                <span className="font-display text-xl font-bold tracking-[0.2em] text-[#F5F5F5] uppercase group-hover:text-[#A78BFA] transition-colors leading-none">
-                  AN FOCUS
-                </span>
-                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#A78BFA] mt-1">
-                  A.N. INDUSTRIES BRAND
-                </span>
-              </div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#A0A0A0]">
+                An A.N. Industries brand
+              </span>
             </Link>
 
             <p className="text-sm font-light text-[#A0A0A0] leading-relaxed max-w-sm">
@@ -94,7 +90,7 @@ export default function Footer() {
                         label: link.label,
                       })
                     }
-                    className="hover:text-[#A78BFA] transition-colors"
+                    className="hover:text-[#B48BDF] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -140,13 +136,13 @@ export default function Footer() {
             <div className="space-y-2 text-xs font-mono">
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="block hover:text-[#A78BFA] transition-colors"
+                className="block hover:text-[#B48BDF] transition-colors"
               >
                 {siteConfig.contact.email}
               </a>
               <a
                 href={`tel:${siteConfig.contact.phones[0].replace(/\s+/g, '')}`}
-                className="block hover:text-[#A78BFA] transition-colors"
+                className="block hover:text-[#B48BDF] transition-colors"
               >
                 {siteConfig.contact.phones[0]}
               </a>
@@ -154,7 +150,7 @@ export default function Footer() {
                 href="https://booking.anfocus.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-[#A78BFA] hover:text-[#C4B5FD] transition-colors"
+                className="block text-[#B48BDF] hover:text-[#CFB8EC] transition-colors"
               >
                 Online Booking Portal ↗
               </a>
@@ -162,7 +158,7 @@ export default function Footer() {
                 href={`https://wa.me/${siteConfig.contact.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-[#A0A0A0] hover:text-[#A78BFA] transition-colors"
+                className="block text-[#A0A0A0] hover:text-[#B48BDF] transition-colors"
               >
                 WhatsApp us &rarr;
               </a>
@@ -178,12 +174,31 @@ export default function Footer() {
 
           <div className="flex items-center gap-6">
             <a
-              href="https://instagram.com/anfocusevents"
+              href={siteConfig.contact.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#F5F5F5] transition-colors"
+              aria-label="AN FOCUS on Instagram"
+              onClick={() =>
+                trackEvent('cta_click', { category: 'footer', label: 'Instagram' })
+              }
+              className="inline-flex items-center gap-2 hover:text-[#F5F5F5] transition-colors"
             >
-              Instagram @anfocusevents
+              <InstagramIcon className="h-4 w-4" />
+              <span>Instagram</span>
+            </a>
+
+            <a
+              href={siteConfig.contact.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AN FOCUS on Facebook"
+              onClick={() =>
+                trackEvent('cta_click', { category: 'footer', label: 'Facebook' })
+              }
+              className="inline-flex items-center gap-2 hover:text-[#F5F5F5] transition-colors"
+            >
+              <FacebookIcon className="h-4 w-4" />
+              <span>Facebook</span>
             </a>
 
             <button

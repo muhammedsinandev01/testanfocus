@@ -33,7 +33,7 @@ export default function FAQ() {
           {/* Left Column: Heading & Quick Consultation CTA */}
           <div className="lg:col-span-5">
             <ScrollReveal direction="up">
-              <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+              <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#B48BDF] mb-4">
                 {hasPublishedWork ? '07' : '06'} &mdash; FAQ
               </span>
               <h2 className="font-display text-4xl sm:text-5xl font-medium tracking-tight text-[#F5F5F5] uppercase">
@@ -45,7 +45,7 @@ export default function FAQ() {
 
               {/* Instant WhatsApp Quick Callout */}
               <div className="mt-10 p-6 bg-[#111111] border border-white/[0.08] rounded-sm">
-                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A78BFA] mb-2">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#B48BDF] mb-2">
                   <MessageSquareQuote className="h-4 w-4" />
                   <span>Prefer an instant answer?</span>
                 </div>
@@ -62,7 +62,7 @@ export default function FAQ() {
                       label: 'Direct WhatsApp',
                     })
                   }
-                  className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#F5F5F5] hover:text-[#A78BFA] transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#F5F5F5] hover:text-[#B48BDF] transition-colors"
                 >
                   <span>WhatsApp +91 9895401085</span>
                   <span>&rarr;</span>
@@ -84,12 +84,12 @@ export default function FAQ() {
                       className="w-full flex items-center justify-between text-left group gap-4 py-2"
                       aria-expanded={isOpen}
                     >
-                      <span className="font-display text-lg sm:text-xl font-light text-[#F5F5F5] uppercase tracking-wide group-hover:text-[#A78BFA] transition-colors">
+                      <span className="font-display text-lg sm:text-xl font-light text-[#F5F5F5] uppercase tracking-wide group-hover:text-[#B48BDF] transition-colors">
                         {item.question}
                       </span>
-                      <div className="h-8 w-8 rounded-full border border-white/[0.1] flex items-center justify-center shrink-0 group-hover:border-[#A78BFA] transition-colors">
+                      <div className="h-8 w-8 rounded-full border border-white/[0.1] flex items-center justify-center shrink-0 group-hover:border-[#B48BDF] transition-colors">
                         {isOpen ? (
-                          <Minus className="h-3.5 w-3.5 text-[#A78BFA]" />
+                          <Minus className="h-3.5 w-3.5 text-[#B48BDF]" />
                         ) : (
                           <Plus className="h-3.5 w-3.5 text-[#A0A0A0]" />
                         )}

@@ -30,7 +30,7 @@ export default function HomePage() {
     },
     telephone: siteConfig.contact.phones[0],
     email: siteConfig.contact.email,
-    sameAs: [siteConfig.contact.instagramUrl],
+    sameAs: [siteConfig.contact.instagramUrl, siteConfig.contact.facebookUrl],
     openingHours: 'Mo,Tu,We,Th,Fr 09:00-18:00',
     priceRange: '₹₹₹',
     areaServed: [

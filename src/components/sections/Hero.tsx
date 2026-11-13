@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#080808] pt-24 md:pt-28 pb-8 md:pb-10 px-6 md:px-12 lg:px-20"
+      className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-[#080808] pt-32 md:pt-36 pb-8 md:pb-10 px-6 md:px-12 lg:px-20"
     >
       {/* =====================================================================
           CINEMATIC BACKGROUND SYSTEM
@@ -25,8 +25,8 @@ export default function Hero() {
       ===================================================================== */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Generative ambient gradient layers */}
-        <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#A78BFA]/10 to-transparent blur-[140px] pointer-events-none" />
-        <div className="absolute -bottom-[20%] -right-[10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-tl from-[#7C3AED]/8 via-[#A78BFA]/5 to-transparent blur-[160px] pointer-events-none" />
+        <div className="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#B48BDF]/10 to-transparent blur-[140px] pointer-events-none" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-tl from-[#622D8E]/8 via-[#B48BDF]/5 to-transparent blur-[160px] pointer-events-none" />
 
         {/* Abstract cinematic grid & lines */}
         <div
@@ -73,7 +73,7 @@ export default function Hero() {
       {/* Top Studio Indicator */}
       <div className="relative z-10 flex items-center justify-between text-xs font-mono uppercase tracking-[0.25em] text-[#A0A0A0]/70 border-b border-white/[0.08] pb-4 md:pb-6">
         <div className="flex items-center gap-2">
-          <span className="inline-block h-2 w-2 rounded-full bg-[#A78BFA] animate-pulse" />
+          <span className="inline-block h-2 w-2 rounded-full bg-[#B48BDF] animate-pulse" />
           <span>Kerala, India &mdash; Available Globally</span>
         </div>
         <div className="hidden sm:flex items-center gap-6">
@@ -88,7 +88,7 @@ export default function Hero() {
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-[-0.03em] leading-[0.98] text-[#F5F5F5] uppercase">
           Ideas become
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5F5F5] via-[#E2E8F0] to-[#A78BFA]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5F5F5] via-[#E2E8F0] to-[#B48BDF]">
             experiences
           </span>
           <br />
@@ -110,7 +110,7 @@ export default function Hero() {
                 label: heroContent.cta.primary.label,
               })
             }
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-all duration-300 shadow-[0_0_30px_rgba(167,139,250,0.25)]"
+            className="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#622D8E] text-white font-semibold rounded-sm hover:bg-[#7535A8] transition-all duration-300 shadow-[0_0_30px_rgba(180,139,223,0.25)]"
           >
             <span>{heroContent.cta.primary.label}</span>
             <ArrowUpRight className="ml-2 h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -126,10 +126,10 @@ export default function Hero() {
                 label: 'Book Events / Tickets',
               })
             }
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5] border border-[#A78BFA]/50 bg-[#A78BFA]/10 rounded-sm hover:bg-[#A78BFA]/20 hover:border-[#A78BFA] transition-all duration-300"
+            className="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5] border border-[#B48BDF]/50 bg-[#B48BDF]/10 rounded-sm hover:bg-[#B48BDF]/20 hover:border-[#B48BDF] transition-all duration-300"
           >
             <span>Book Events / Tickets</span>
-            <ArrowUpRight className="ml-2 h-4 w-4 text-[#A78BFA] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            <ArrowUpRight className="ml-2 h-4 w-4 text-[#B48BDF] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </a>
 
           {hasPublishedWork && (
@@ -166,11 +166,11 @@ export default function Hero() {
         {/* Scroll Indicator */}
         <a
           href="#introduction"
-          className="group hidden sm:inline-flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#A0A0A0]/70 hover:text-[#A78BFA] transition-colors"
+          className="group hidden sm:inline-flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#A0A0A0]/70 hover:text-[#B48BDF] transition-colors"
           aria-label="Scroll to introduction"
         >
           <span>Scroll to explore</span>
-          <div className="h-8 w-8 rounded-full border border-white/[0.15] flex items-center justify-center group-hover:border-[#A78BFA] transition-colors">
+          <div className="h-8 w-8 rounded-full border border-white/[0.15] flex items-center justify-center group-hover:border-[#B48BDF] transition-colors">
             <ArrowDown className="h-3.5 w-3.5 animate-scroll-indicator" />
           </div>
         </a>

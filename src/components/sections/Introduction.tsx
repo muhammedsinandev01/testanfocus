@@ -17,7 +17,7 @@ export default function Introduction() {
       <div className="max-w-7xl mx-auto">
         {/* Big Editorial Headline */}
         <ScrollReveal direction="up" delay={100}>
-          <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-10">
+          <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#B48BDF] mb-10">
             01 &mdash; THE STUDIO
           </span>
           <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-[-0.02em] leading-[1.05] text-[#F5F5F5] uppercase whitespace-pre-line max-w-5xl">
@@ -43,7 +43,7 @@ export default function Introduction() {
 
             <ScrollReveal direction="up" delay={350}>
               <div className="pt-4 flex items-center gap-4 text-xs font-mono uppercase tracking-[0.2em] text-[#A0A0A0]/80">
-                <span className="h-2 w-2 rounded-full bg-[#A78BFA]" />
+                <span className="h-2 w-2 rounded-full bg-[#B48BDF]" />
                 <span>Strategy &bull; Production &bull; Performance &bull; Engineering</span>
               </div>
             </ScrollReveal>
@@ -79,12 +79,12 @@ export default function Introduction() {
                 delay={200 + idx * 80}
                 className="h-full"
               >
-                <div className="h-full p-6 md:p-8 bg-[#111111]/70 border border-white/[0.08] hover:border-[#A78BFA]/40 transition-colors duration-300 rounded-sm flex flex-col justify-between group">
+                <div className="h-full p-6 md:p-8 bg-[#111111]/70 border border-white/[0.08] hover:border-[#B48BDF]/40 transition-colors duration-300 rounded-sm flex flex-col justify-between group">
                   <div>
-                    <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA]">
+                    <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B48BDF]">
                       {pillar.num}
                     </span>
-                    <h3 className="mt-4 text-lg font-medium text-[#F5F5F5] group-hover:text-[#A78BFA] transition-colors">
+                    <h3 className="mt-4 text-lg font-medium text-[#F5F5F5] group-hover:text-[#B48BDF] transition-colors">
                       {pillar.title}
                     </h3>
                     <p className="mt-3 text-xs sm:text-sm text-[#A0A0A0] leading-relaxed">

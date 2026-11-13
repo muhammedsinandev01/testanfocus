@@ -83,7 +83,7 @@ export default function Portfolio() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
           <ScrollReveal direction="up">
-            <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+            <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#B48BDF] mb-4">
               05 &mdash; SELECTED WORK
             </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[#F5F5F5] uppercase">
@@ -120,7 +120,7 @@ export default function Portfolio() {
                 type="button"
                 onClick={() => handleOpenProject(project)}
                 aria-label={`View case study: ${project.title}`}
-                className="group relative w-full text-left cursor-pointer flex flex-col bg-[#111111] border border-white/[0.1] hover:border-[#A78BFA]/50 transition-all duration-500 rounded-sm overflow-hidden"
+                className="group relative w-full text-left cursor-pointer flex flex-col bg-[#111111] border border-white/[0.1] hover:border-[#B48BDF]/50 transition-all duration-500 rounded-sm overflow-hidden"
               >
                 {/* Media Card Showcase */}
                 <div className="aspect-[16/10] w-full overflow-hidden relative">
@@ -135,7 +135,7 @@ export default function Portfolio() {
 
                   {/* Quick Expand Hint */}
                   <div className="absolute bottom-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#A78BFA] text-[#080808] text-[11px] font-mono uppercase tracking-widest font-semibold rounded-sm">
+                    <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#622D8E] text-white text-[11px] font-mono uppercase tracking-widest font-semibold rounded-sm">
                       View case study <ArrowUpRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
@@ -147,11 +147,11 @@ export default function Portfolio() {
                     <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A0A0A0]/70 block mb-2">
                       {project.category}
                     </span>
-                    <h3 className="font-display text-2xl font-light text-[#F5F5F5] uppercase tracking-wide group-hover:text-[#A78BFA] transition-colors">
+                    <h3 className="font-display text-2xl font-light text-[#F5F5F5] uppercase tracking-wide group-hover:text-[#B48BDF] transition-colors">
                       {project.title}
                     </h3>
                   </div>
-                  <div className="h-10 w-10 rounded-full border border-white/[0.15] flex items-center justify-center group-hover:border-[#A78BFA] group-hover:bg-[#A78BFA] group-hover:text-[#080808] transition-all">
+                  <div className="h-10 w-10 rounded-full border border-white/[0.15] flex items-center justify-center group-hover:border-[#B48BDF] group-hover:bg-[#622D8E] group-hover:text-white transition-all">
                     <ArrowUpRight className="h-4 w-4" />
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export default function Portfolio() {
             {/* Modal Header */}
             <div className="flex items-start justify-between border-b border-white/[0.1] pb-6 mb-8">
               <div>
-                <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA] mb-2">
+                <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-[#B48BDF] mb-2">
                   <span>Case study</span>
                   <span>&bull;</span>
                   <span>{activeModalProject.category}</span>
@@ -220,7 +220,7 @@ export default function Portfolio() {
                       <span className="text-[#A0A0A0]/60 block uppercase tracking-widest mb-1">
                         Service
                       </span>
-                      <span className="text-[#A78BFA] font-medium text-sm">
+                      <span className="text-[#B48BDF] font-medium text-sm">
                         {activeModalProject.category}
                       </span>
                     </div>
@@ -228,7 +228,7 @@ export default function Portfolio() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div>
-                      <h4 className="font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA] mb-4">
+                      <h4 className="font-mono text-xs uppercase tracking-[0.25em] text-[#B48BDF] mb-4">
                         The challenge
                       </h4>
                       <p className="text-base text-[#A0A0A0] leading-relaxed font-light">
@@ -237,7 +237,7 @@ export default function Portfolio() {
                     </div>
 
                     <div>
-                      <h4 className="font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA] mb-4">
+                      <h4 className="font-mono text-xs uppercase tracking-[0.25em] text-[#B48BDF] mb-4">
                         What we did
                       </h4>
                       <ul className="space-y-3">
@@ -246,7 +246,7 @@ export default function Portfolio() {
                             key={idx}
                             className="flex items-start gap-3 text-sm text-[#F5F5F5] font-light"
                           >
-                            <span className="font-mono text-xs text-[#A78BFA] mt-0.5">
+                            <span className="font-mono text-xs text-[#B48BDF] mt-0.5">
                               {String(idx + 1).padStart(2, '0')}
                             </span>
                             <span>{item}</span>
@@ -260,7 +260,7 @@ export default function Portfolio() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/[0.08]">
                       {details.result && (
                         <div className="p-6 bg-[#111111] border border-white/[0.08] rounded-sm">
-                          <h5 className="font-mono text-xs uppercase tracking-[0.2em] text-[#A78BFA] mb-3">
+                          <h5 className="font-mono text-xs uppercase tracking-[0.2em] text-[#B48BDF] mb-3">
                             The result
                           </h5>
                           <p className="text-sm text-[#F5F5F5] leading-relaxed">
@@ -288,7 +288,7 @@ export default function Portfolio() {
                 <a
                   href="#contact"
                   onClick={() => setActiveModalProject(null)}
-                  className="px-8 py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-colors"
+                  className="px-8 py-3.5 text-xs font-mono uppercase tracking-[0.2em] bg-[#622D8E] text-white font-semibold rounded-sm hover:bg-[#7535A8] transition-colors"
                 >
                   Start a project like this &rarr;
                 </a>

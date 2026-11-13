@@ -99,7 +99,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} dark scroll-smooth`}>
-      <body className="min-h-screen bg-[#080808] text-[#F5F5F5] font-sans antialiased selection:bg-[#A78BFA] selection:text-[#080808]">
+      <body className="min-h-screen bg-[#080808] text-[#F5F5F5] font-sans antialiased selection:bg-[#622D8E] selection:text-white">
         {children}
         <Analytics />
       </body>

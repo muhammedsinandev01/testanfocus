@@ -6,8 +6,10 @@
     --background-secondary: #111111;
     --foreground: #F5F5F5;
     --foreground-muted: #A0A0A0;
-    --accent: #A78BFA;
-    --accent-highlight: #C4B5FD;
+    --brand: #622D8E;
+    --brand-hover: #7535A8;
+    --accent: #B48BDF;
+    --accent-highlight: #CFB8EC;
     --border-subtle: rgba(255, 255, 255, 0.12);
   }
 
@@ -29,20 +31,20 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    selection-background-color: #A78BFA;
-    selection-color: #080808;
+    selection-background-color: #622D8E;
+    selection-color: #FFFFFF;
   }
 
   ::selection {
-    background-color: #A78BFA;
-    color: #080808;
+    background-color: #622D8E;
+    color: #FFFFFF;
   }
 }
 
 /* Visible keyboard focus everywhere (unlayered, so it also applies to form
    fields that reset their outline with a utility class). */
 :focus-visible {
-  outline: 2px solid #A78BFA;
+  outline: 2px solid #B48BDF;
   outline-offset: 2px;
 }
 
@@ -61,7 +63,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(167, 139, 250, 0.4);
+  background: rgba(180, 139, 223, 0.4);
 }
 
 /* Subtle cinematic noise overlay */
@@ -72,7 +74,7 @@
 
 /* Subtle glowing accent gradient */
 .ambient-glow {
-  background: radial-gradient(circle at 50% 30%, rgba(167, 139, 250, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle at 50% 30%, rgba(180, 139, 223, 0.08) 0%, transparent 60%);
 }
 
 /* Keyframes for subtle entrance and scroll pulses */
@@ -112,4 +114,31 @@
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Booking ticker: slides right-to-left by one of its two identical copies,
+   then repeats seamlessly. Pauses on hover so the link is easy to read. */
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: tickerScroll 40s linear infinite;
+}
+
+.group:hover .animate-ticker,
+.group:focus-visible .animate-ticker {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none;
+  }
 }

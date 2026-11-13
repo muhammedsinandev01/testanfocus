@@ -19,7 +19,9 @@ export const siteConfig = {
     whatsapp: '919895401085',
     website: 'anfocus.in',
     instagram: '@anfocusevents',
-    instagramUrl: 'https://instagram.com/anfocusevents',
+    instagramUrl: 'https://www.instagram.com/anfocusevents',
+    facebook: 'AN Focus Events',
+    facebookUrl: 'https://www.facebook.com/profile.php?id=61591709681753',
     location: 'Kerala, India',
   },
 
@@ -29,7 +31,8 @@ export const siteConfig = {
   },
 
   social: {
-    instagram: 'https://instagram.com/anfocusevents',
+    instagram: 'https://www.instagram.com/anfocusevents',
+    facebook: 'https://www.facebook.com/profile.php?id=61591709681753',
   },
 } as const;
 

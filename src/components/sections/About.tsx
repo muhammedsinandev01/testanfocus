@@ -17,7 +17,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto">
         {/* Section Marker */}
         <ScrollReveal direction="up">
-          <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+          <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#B48BDF] mb-4">
             {hasPublishedWork ? '06' : '05'} &mdash; ABOUT
           </span>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[#F5F5F5] uppercase">
@@ -45,7 +45,7 @@ export default function About() {
             <ScrollReveal direction="up" delay={300}>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/[0.08]">
                 <div className="flex items-center gap-3">
-                  <ShieldCheck className="h-5 w-5 text-[#A78BFA] shrink-0" />
+                  <ShieldCheck className="h-5 w-5 text-[#B48BDF] shrink-0" />
                   <div>
                     <span className="block font-mono text-[10px] uppercase tracking-widest text-[#A0A0A0]/60">Parent Entity</span>
                     <span className="font-medium text-xs sm:text-sm text-[#F5F5F5]">A.N. Industries</span>
@@ -53,7 +53,7 @@ export default function About() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Globe2 className="h-5 w-5 text-[#A78BFA] shrink-0" />
+                  <Globe2 className="h-5 w-5 text-[#B48BDF] shrink-0" />
                   <div>
                     <span className="block font-mono text-[10px] uppercase tracking-widest text-[#A0A0A0]/60">HQ Location</span>
                     <span className="font-medium text-xs sm:text-sm text-[#F5F5F5]">Kerala, India</span>
@@ -61,7 +61,7 @@ export default function About() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <Users2 className="h-5 w-5 text-[#A78BFA] shrink-0" />
+                  <Users2 className="h-5 w-5 text-[#B48BDF] shrink-0" />
                   <div>
                     <span className="block font-mono text-[10px] uppercase tracking-widest text-[#A0A0A0]/60">Operation</span>
                     <span className="font-medium text-xs sm:text-sm text-[#F5F5F5]">Global Reach</span>
@@ -74,7 +74,7 @@ export default function About() {
           {/* Right Column: Architectural Highlights */}
           <div className="lg:col-span-5 bg-[#111111] border border-white/[0.08] p-8 sm:p-10 rounded-sm">
             <ScrollReveal direction="left">
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA] block mb-4">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B48BDF] block mb-4">
                 Our promise
               </span>
               <h3 className="font-display text-2xl font-light text-[#F5F5F5] uppercase leading-snug">
@@ -92,7 +92,7 @@ export default function About() {
           <div className="mt-28 md:mt-36">
             <div className="mb-12 border-b border-white/[0.08] pb-6">
               <ScrollReveal direction="up">
-                <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] block mb-2">
+                <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#B48BDF] block mb-2">
                   The team
                 </span>
                 <h3 className="font-display text-3xl font-light text-[#F5F5F5] uppercase">

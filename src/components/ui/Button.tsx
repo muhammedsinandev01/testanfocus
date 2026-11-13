@@ -29,8 +29,8 @@ type ButtonProps = ButtonAsButton | ButtonAsAnchor;
 // ── Style Maps ───────────────────────────────────────────────────────────
 const variantStyles = {
   primary: cn(
-    'bg-[#A78BFA] text-[#080808]',
-    'hover:brightness-110 hover:shadow-[0_0_24px_rgba(167,139,250,0.25)]',
+    'bg-[#622D8E] text-white',
+    'hover:brightness-110 hover:shadow-[0_0_24px_rgba(180,139,223,0.25)]',
     'active:brightness-95'
   ),
   secondary: cn(
@@ -64,7 +64,7 @@ export default function Button(props: ButtonProps) {
     'transition-all duration-300 ease-out',
     'hover:scale-[1.02] active:scale-[0.98]',
     // Focus ring
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A78BFA]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B48BDF]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]',
     // Variants
     variantStyles[variant],
     sizeStyles[size],

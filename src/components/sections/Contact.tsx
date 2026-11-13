@@ -11,6 +11,7 @@ import { siteConfig, contactContent } from '@/config/site';
 import { hasPublishedWork } from '@/config/media';
 import { trackEvent } from '@/lib/analytics';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { InstagramIcon, FacebookIcon } from '@/components/ui/SocialIcons';
 import {
   Mail,
   Phone,
@@ -19,24 +20,6 @@ import {
   ArrowUpRight,
   Send,
 } from 'lucide-react';
-
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  );
-}
 
 interface FormData {
   name: string;
@@ -165,7 +148,7 @@ export default function Contact() {
         {/* Section Header */}
         <div className="mb-16 md:mb-24">
           <ScrollReveal direction="up">
-            <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+            <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#B48BDF] mb-4">
               {hasPublishedWork ? '08' : '07'} &mdash; CONTACT
             </span>
             <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-light text-[#F5F5F5] uppercase leading-[0.98]">
@@ -183,7 +166,7 @@ export default function Contact() {
           <div className="lg:col-span-7 bg-[#111111] border border-white/[0.1] rounded-sm p-8 sm:p-12">
             {isSubmitted ? (
               <div className="py-12 text-center space-y-6">
-                <div className="h-16 w-16 mx-auto rounded-full bg-[#A78BFA]/10 border border-[#A78BFA] flex items-center justify-center text-[#A78BFA]">
+                <div className="h-16 w-16 mx-auto rounded-full bg-[#B48BDF]/10 border border-[#B48BDF] flex items-center justify-center text-[#B48BDF]">
                   <CheckCircle2 className="h-8 w-8" />
                 </div>
                 <h3 className="font-display text-3xl font-light text-[#F5F5F5] uppercase">
@@ -197,7 +180,7 @@ export default function Contact() {
                     href={whatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#622D8E] text-white font-semibold rounded-sm hover:bg-[#7535A8] transition-colors"
                   >
                     <MessageCircle className="h-4 w-4" />
                     <span>Open WhatsApp</span>
@@ -210,7 +193,7 @@ export default function Contact() {
                       setIsSubmitted(false);
                       setForm(initialForm);
                     }}
-                    className="text-xs font-mono uppercase tracking-[0.2em] text-[#A78BFA] hover:underline"
+                    className="text-xs font-mono uppercase tracking-[0.2em] text-[#B48BDF] hover:underline"
                   >
                     Send another enquiry &rarr;
                   </button>
@@ -222,7 +205,7 @@ export default function Contact() {
                   <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A0A0A0]/60">
                     Tell us about your project
                   </span>
-                  <span className="font-mono text-xs text-[#A78BFA]">* Required</span>
+                  <span className="font-mono text-xs text-[#B48BDF]">* Required</span>
                 </div>
 
                 {/* Name & Company */}
@@ -237,7 +220,7 @@ export default function Contact() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="e.g. Rahul Menon"
-                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${errors.name ? 'border-red-500/60' : 'border-white/[0.12]'
+                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#B48BDF] transition-colors ${errors.name ? 'border-red-500/60' : 'border-white/[0.12]'
                         }`}
                     />
                     {errors.name && (
@@ -255,7 +238,7 @@ export default function Contact() {
                       value={form.company}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
                       placeholder="e.g. Studio Brand"
-                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors"
+                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#B48BDF] transition-colors"
                     />
                   </div>
                 </div>
@@ -272,7 +255,7 @@ export default function Contact() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="rahul@example.com"
-                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${errors.email ? 'border-red-500/60' : 'border-white/[0.12]'
+                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#B48BDF] transition-colors ${errors.email ? 'border-red-500/60' : 'border-white/[0.12]'
                         }`}
                     />
                     {errors.email && (
@@ -290,7 +273,7 @@ export default function Contact() {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="+91 ..."
-                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors"
+                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#B48BDF] transition-colors"
                     />
                   </div>
                 </div>
@@ -306,7 +289,7 @@ export default function Contact() {
                     value={form.country}
                     onChange={(e) => setForm({ ...form, country: e.target.value })}
                     placeholder="e.g. India (Kochi/Bangalore), UAE (Dubai), UK, USA..."
-                    className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors"
+                    className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#B48BDF] transition-colors"
                   />
                 </div>
 
@@ -320,7 +303,7 @@ export default function Contact() {
                       id="budget"
                       value={form.budget}
                       onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors"
+                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] rounded-sm focus:outline-none focus:border-[#B48BDF] transition-colors"
                     >
                       {budgetOptions.map((opt) => (
                         <option key={opt} value={opt} className="bg-[#111111] text-[#F5F5F5]">
@@ -338,7 +321,7 @@ export default function Contact() {
                       id="timeline"
                       value={form.timeline}
                       onChange={(e) => setForm({ ...form, timeline: e.target.value })}
-                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors"
+                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] rounded-sm focus:outline-none focus:border-[#B48BDF] transition-colors"
                     >
                       {timelineOptions.map((opt) => (
                         <option key={opt} value={opt} className="bg-[#111111] text-[#F5F5F5]">
@@ -360,7 +343,7 @@ export default function Contact() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Tell us about the event scale, film deliverables, website vision, or digital marketing goals..."
-                    className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors resize-none ${errors.message ? 'border-red-500/60' : 'border-white/[0.12]'
+                    className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#B48BDF] transition-colors resize-none ${errors.message ? 'border-red-500/60' : 'border-white/[0.12]'
                       }`}
                   />
                   {errors.message && (
@@ -377,7 +360,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setForm({ ...form, consultationRequest: e.target.checked })
                     }
-                    className="mt-1 h-4 w-4 rounded-sm border-white/[0.2] bg-[#080808] text-[#A78BFA] focus:ring-[#A78BFA]"
+                    className="mt-1 h-4 w-4 rounded-sm border-white/[0.2] bg-[#080808] text-[#B48BDF] focus:ring-[#B48BDF]"
                   />
                   <label htmlFor="consultation" className="text-xs text-[#A0A0A0] leading-relaxed select-none cursor-pointer">
                     I would like a free consultation call.
@@ -388,7 +371,7 @@ export default function Contact() {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-3 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-all duration-300"
+                    className="w-full inline-flex items-center justify-center gap-3 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#622D8E] text-white font-semibold rounded-sm hover:bg-[#7535A8] transition-all duration-300"
                   >
                     <span>Send enquiry on WhatsApp</span>
                     <Send className="h-4 w-4" />
@@ -406,7 +389,7 @@ export default function Contact() {
             <ScrollReveal direction="left">
               {/* Direct Instant Channels Card */}
               <div className="p-8 bg-[#111111] border border-white/[0.1] rounded-sm space-y-6">
-                <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA] block">
+                <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B48BDF] block">
                   Contact us directly
                 </span>
 
@@ -417,10 +400,10 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={handleWhatsAppClick}
-                    className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#A78BFA] rounded-sm transition-all group"
+                    className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#B48BDF] rounded-sm transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <MessageCircle className="h-5 w-5 text-[#A78BFA]" />
+                      <MessageCircle className="h-5 w-5 text-[#B48BDF]" />
                       <div>
                         <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
                           WhatsApp
@@ -430,7 +413,7 @@ export default function Contact() {
                         </span>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#A78BFA] transition-colors" />
+                    <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#B48BDF] transition-colors" />
                   </a>
 
                   {/* Primary Email */}
@@ -442,10 +425,10 @@ export default function Contact() {
                         label: 'Contact email',
                       })
                     }
-                    className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#A78BFA] rounded-sm transition-all group"
+                    className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#B48BDF] rounded-sm transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <Mail className="h-5 w-5 text-[#A78BFA]" />
+                      <Mail className="h-5 w-5 text-[#B48BDF]" />
                       <div>
                         <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
                           Email
@@ -455,7 +438,7 @@ export default function Contact() {
                         </span>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#A78BFA] transition-colors" />
+                    <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#B48BDF] transition-colors" />
                   </a>
 
                   {/* Direct Phone Lines */}
@@ -469,10 +452,10 @@ export default function Contact() {
                           label: phone,
                         })
                       }
-                      className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#A78BFA] rounded-sm transition-all group"
+                      className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#B48BDF] rounded-sm transition-all group"
                     >
                       <div className="flex items-center gap-3">
-                        <Phone className="h-5 w-5 text-[#A78BFA]" />
+                        <Phone className="h-5 w-5 text-[#B48BDF]" />
                         <div>
                           <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
                             Phone {idx + 1}
@@ -480,7 +463,7 @@ export default function Contact() {
                           <span className="font-mono text-xs text-[#F5F5F5]">{phone}</span>
                         </div>
                       </div>
-                      <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#A78BFA] transition-colors" />
+                      <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#B48BDF] transition-colors" />
                     </a>
                   ))}
 
@@ -495,10 +478,10 @@ export default function Contact() {
                         label: 'Instagram Profile',
                       })
                     }
-                    className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#A78BFA] rounded-sm transition-all group"
+                    className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#B48BDF] rounded-sm transition-all group"
                   >
                     <div className="flex items-center gap-3">
-                      <InstagramIcon className="h-5 w-5 text-[#A78BFA]" />
+                      <InstagramIcon className="h-5 w-5 text-[#B48BDF]" />
                       <div>
                         <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
                           Instagram
@@ -508,7 +491,34 @@ export default function Contact() {
                         </span>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#A78BFA] transition-colors" />
+                    <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#B48BDF] transition-colors" />
+                  </a>
+
+                  {/* Facebook Page */}
+                  <a
+                    href={siteConfig.contact.facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackEvent('cta_click', {
+                        category: 'social',
+                        label: 'Facebook Page',
+                      })
+                    }
+                    className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#B48BDF] rounded-sm transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <FacebookIcon className="h-5 w-5 text-[#B48BDF]" />
+                      <div>
+                        <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
+                          Facebook
+                        </span>
+                        <span className="font-mono text-xs text-[#F5F5F5]">
+                          {siteConfig.contact.facebook}
+                        </span>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 text-[#A0A0A0] group-hover:text-[#B48BDF] transition-colors" />
                   </a>
                 </div>
               </div>
