@@ -7,6 +7,7 @@
 
 import { useState } from 'react';
 import { faqItems, siteConfig } from '@/config/site';
+import { hasPublishedWork } from '@/config/media';
 import { trackEvent } from '@/lib/analytics';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { Plus, Minus, MessageSquareQuote } from 'lucide-react';
@@ -32,17 +33,14 @@ export default function FAQ() {
           {/* Left Column: Heading & Quick Consultation CTA */}
           <div className="lg:col-span-5">
             <ScrollReveal direction="up">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA]">
-                  07 &mdash; CLARITY
-                </span>
-                <div className="h-px w-16 bg-[#A78BFA]/40" />
-              </div>
+              <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+                {hasPublishedWork ? '07' : '06'} &mdash; FAQ
+              </span>
               <h2 className="font-display text-4xl sm:text-5xl font-medium tracking-tight text-[#F5F5F5] uppercase">
                 Frequently Asked Questions.
               </h2>
               <p className="mt-6 text-base text-[#A0A0A0] leading-relaxed font-light">
-                Transparent answers regarding onboarding, geography, currencies, and our multi-disciplinary engagement models.
+                Quick answers on where we work, how to start and what to expect.
               </p>
 
               {/* Instant WhatsApp Quick Callout */}
@@ -52,7 +50,7 @@ export default function FAQ() {
                   <span>Prefer an instant answer?</span>
                 </div>
                 <p className="text-xs text-[#A0A0A0] leading-relaxed mb-4">
-                  Chat directly with our studio directors on WhatsApp for real-time availability and scoping.
+                  Message us on WhatsApp and we will answer directly.
                 </p>
                 <a
                   href={`https://wa.me/${siteConfig.contact.whatsapp}`}

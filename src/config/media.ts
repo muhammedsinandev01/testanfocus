@@ -107,6 +107,13 @@ export const portfolioProjects: PortfolioProject[] = [
   },
 ];
 
+// Only real (non-sample) projects are shown on the site. While every entry
+// above is a sample, the Work section and its nav links stay hidden.
+// To publish a project: add its media, set `isSample: false`, and add its
+// write-up in `components/sections/Portfolio.tsx`.
+export const publishedProjects = portfolioProjects.filter((p) => !p.isSample);
+export const hasPublishedWork = publishedProjects.length > 0;
+
 // ============================================================================
 // Team Placeholders
 // ============================================================================
@@ -125,4 +132,8 @@ export const teamMembers: TeamMember[] = Array.from({ length: 8 }, (_, i) => ({
   photo: `/media/team/member-${i + 1}.jpg`,
   isPlaceholder: true,
 }));
+
+// Only real team members are shown. Replace the placeholders above with real
+// names, roles and photos (and `isPlaceholder: false`) to publish the team grid.
+export const publishedTeam = teamMembers.filter((m) => !m.isPlaceholder);
 

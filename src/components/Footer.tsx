@@ -69,7 +69,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm font-light text-[#A0A0A0] leading-relaxed max-w-sm">
-              AN FOCUS is a creative studio in Kerala, India, and the digital media and production brand of A.N. Industries. Uniting live events, film, digital growth, and web architecture.
+              AN FOCUS is a creative studio in Kerala, India, and the digital media and production brand of A.N. Industries. Events, film, digital marketing and web under one team.
             </p>
 
             <div className="pt-2 flex items-center gap-3 font-mono text-xs text-[#A0A0A0]/70">
@@ -94,7 +94,7 @@ export default function Footer() {
                         label: link.label,
                       })
                     }
-                    className="hover:text-[#F5F5F5] hover:text-[#A78BFA] transition-colors"
+                    className="hover:text-[#A78BFA] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -135,7 +135,7 @@ export default function Footer() {
           {/* Direct Channels */}
           <div className="lg:col-span-3 space-y-4">
             <span className="block font-mono text-xs uppercase tracking-[0.25em] text-[#F5F5F5]">
-              Dispatch
+              Contact
             </span>
             <div className="space-y-2 text-xs font-mono">
               <a
@@ -164,7 +164,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="block text-[#A0A0A0] hover:text-[#A78BFA] transition-colors"
               >
-                WhatsApp Direct Link &rarr;
+                WhatsApp us &rarr;
               </a>
             </div>
           </div>
@@ -173,7 +173,7 @@ export default function Footer() {
         {/* Bottom Editorial Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#A0A0A0]/60">
           <div>
-            &copy; 2027 AN FOCUS. A Brand of A.N. Industries. All rights reserved.
+            &copy; 2026 AN FOCUS. A Brand of A.N. Industries. All rights reserved.
           </div>
 
           <div className="flex items-center gap-6">

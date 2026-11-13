@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Space_Grotesk, Inter } from 'next/font/google';
 import './globals.css';
 import { siteConfig, seoConfig } from '@/config/site';
+import Analytics from '@/components/Analytics';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -100,6 +101,7 @@ export default function RootLayout({
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} dark scroll-smooth`}>
       <body className="min-h-screen bg-[#080808] text-[#F5F5F5] font-sans antialiased selection:bg-[#A78BFA] selection:text-[#080808]">
         {children}
+        <Analytics />
       </body>
     </html>
   );

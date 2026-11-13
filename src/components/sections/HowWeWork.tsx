@@ -21,12 +21,9 @@ export default function HowWeWork() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 md:mb-28">
           <ScrollReveal direction="up">
-            <div className="flex items-center gap-4 mb-4">
-              <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA]">
-                03 &mdash; METHODOLOGY
-              </span>
-              <div className="h-px w-16 bg-[#A78BFA]/40" />
-            </div>
+            <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+              03 &mdash; HOW WE WORK
+            </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[#F5F5F5] uppercase">
               How ideas take shape.
             </h2>

@@ -3,7 +3,7 @@
 // ============================================================================
 // AN FOCUS — Services Section
 // Four dedicated cinematic service chapters with editorial typography,
-// included services tags, centralized media preview placeholders, and tailored CTAs.
+// included services tags, media, and tailored CTAs.
 // ============================================================================
 
 import { services } from '@/config/site';
@@ -19,12 +19,9 @@ export default function Services() {
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 mb-20 md:mb-28">
         <ScrollReveal direction="up">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA]">
-              02 &mdash; CAPABILITIES
-            </span>
-            <div className="h-px w-16 bg-[#A78BFA]/40" />
-          </div>
+          <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+            02 &mdash; SERVICES
+          </span>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[#F5F5F5] uppercase">
             Everything your brand needs.
             <br />
@@ -65,7 +62,7 @@ export default function Services() {
                     <ScrollReveal direction="up">
                       {/* Chapter Indicator */}
                       <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA] mb-6">
-                        <span>CHAPTER {service.number}</span>
+                        <span>{service.number}</span>
                         <span>/</span>
                         <span>{service.id.toUpperCase()}</span>
                       </div>
@@ -152,15 +149,7 @@ export default function Services() {
                           />
 
                           {/* Hover Gradient Overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-[#080808]/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-
-                          {/* Visual Spec Badge */}
-                          <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-[#A0A0A0]">
-                            <span className="bg-[#080808]/80 backdrop-blur-md px-3 py-1.5 rounded-sm border border-white/[0.08]">
-                              {service.id.toUpperCase()} MEDIA REEL
-                            </span>
-                            <span className="text-[#A78BFA]">2027 SPEC</span>
-                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
                         </div>
                       </div>
                     </ScrollReveal>

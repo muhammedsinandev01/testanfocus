@@ -84,9 +84,6 @@ export default function Navigation() {
               className="h-8 sm:h-9 md:h-10 w-auto object-contain filter drop-shadow-[0_0_24px_rgba(167,139,250,0.4)] transition-transform duration-300 group-hover:scale-105"
             />
           </div>
-          <span className="hidden xl:inline-block font-mono text-[10px] uppercase tracking-widest text-[#A0A0A0]/50 pl-3 border-l border-white/[0.1]">
-            STUDIO 2027
-          </span>
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -205,7 +202,7 @@ export default function Navigation() {
           >
             <span>{link.label}</span>
             <span className="font-mono text-xs text-[#A0A0A0]/40 group-hover:text-[#A78BFA] transition-colors">
-              0{idx + 1}
+              {String(idx + 1).padStart(2, '0')}
             </span>
           </a>
         ))}

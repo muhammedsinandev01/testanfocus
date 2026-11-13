@@ -4,6 +4,8 @@
 // Update text content here — no need to touch component files.
 // ============================================================================
 
+import { hasPublishedWork } from './media';
+
 export const siteConfig = {
   name: 'AN FOCUS',
   url: 'https://anfocus.in',
@@ -64,12 +66,14 @@ export const seoConfig = {
 // ============================================================================
 // Navigation
 // ============================================================================
-export const navLinks = [
+// The Work link only appears once real projects are published (see media.ts).
+export const navLinks: { label: string; href: string }[] = [
   { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
+  ...(hasPublishedWork ? [{ label: 'Work', href: '#work' }] : []),
   { label: 'About', href: '#about' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
-] as const;
+];
 
 // ============================================================================
 // Hero Section
@@ -79,7 +83,7 @@ export const heroContent = {
   subheadline:
     'AN FOCUS is a creative studio in Kerala, India. We unite events, film and photography, digital marketing and technology for brands that think beyond borders.',
   cta: {
-    primary: { label: 'Brief us from anywhere', href: '#contact' },
+    primary: { label: 'Start a project', href: '#contact' },
     secondary: { label: 'See our work', href: '#work' },
   },
 } as const;

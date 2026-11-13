@@ -8,6 +8,7 @@
 
 import { useState } from 'react';
 import { siteConfig, contactContent } from '@/config/site';
+import { hasPublishedWork } from '@/config/media';
 import { trackEvent } from '@/lib/analytics';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import {
@@ -15,7 +16,6 @@ import {
   Phone,
   MessageCircle,
   CheckCircle2,
-  AlertCircle,
   ArrowUpRight,
   Send,
 } from 'lucide-react';
@@ -56,32 +56,57 @@ const initialForm: FormData = {
   email: '',
   phone: '',
   country: '',
-  budget: 'Under ₹5L / $6K',
-  timeline: 'Immediate (< 1 Month)',
+  budget: 'Not sure yet',
+  timeline: 'Within 1 month',
   message: '',
   consultationRequest: true,
 };
 
 const budgetOptions = [
-  'Under ₹5L / $6K',
-  '₹5L – ₹15L / $6K – $20K',
-  '₹15L – ₹50L / $20K – $60K',
-  '₹50L+ / $60K+ (Enterprise/Festival)',
+  'Not sure yet',
+  'Under ₹50,000',
+  '₹50,000 – ₹2 lakh',
+  '₹2 lakh – ₹5 lakh',
+  '₹5 lakh – ₹15 lakh',
+  '₹15 lakh+',
 ];
 
 const timelineOptions = [
-  'Immediate (< 1 Month)',
-  '1 – 3 Months',
-  '3 – 6 Months',
-  'Exploratory / Later this year',
+  'Within 1 month',
+  '1 – 3 months',
+  '3 – 6 months',
+  'Just exploring',
 ];
+
+// Builds the WhatsApp message that carries the enquiry to the studio.
+function buildWhatsAppUrl(form: FormData): string {
+  const lines = [
+    'New enquiry from anfocus.in',
+    `Name: ${form.name.trim()}`,
+    form.company.trim() && `Company: ${form.company.trim()}`,
+    `Email: ${form.email.trim()}`,
+    form.phone.trim() && `Phone: ${form.phone.trim()}`,
+    form.country.trim() && `Location: ${form.country.trim()}`,
+    `Budget: ${form.budget}`,
+    `Timeline: ${form.timeline}`,
+    form.consultationRequest && 'Would like a free consultation call',
+    '',
+    form.message.trim(),
+  ].filter((line) => line !== false && line !== undefined && line !== null);
+
+  // Drop empty optional fields but keep the blank separator line
+  const text = lines
+    .filter((line, idx) => line !== '' || idx === lines.length - 2)
+    .join('\n');
+
+  return `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(text)}`;
+}
 
 export default function Contact() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [whatsAppUrl, setWhatsAppUrl] = useState('');
 
   const validate = (): boolean => {
     const errs: Partial<Record<keyof FormData, string>> = {};
@@ -92,50 +117,39 @@ export default function Contact() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       errs.email = 'Please enter a valid email address';
     }
-    if (!form.phone.trim()) {
-      errs.phone = 'Phone with country code is required';
-    }
     if (!form.message.trim()) {
-      errs.message = 'Please provide details about your brief or project';
+      errs.message = 'Please tell us a little about your project';
     }
 
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitError(null);
 
     if (!validate()) return;
 
-    setIsSubmitting(true);
+    // No personal details go to analytics — only the non-identifying choices.
+    trackEvent('contact_form_submit', {
+      category: 'contact',
+      label: 'WhatsApp enquiry',
+      budget: form.budget,
+      timeline: form.timeline,
+    });
 
-    try {
-      // Track submission
-      trackEvent('contact_form_submit', {
-        category: 'contact',
-        label: `${form.name} (${form.company || 'Individual'})`,
-        budget: form.budget,
-        timeline: form.timeline,
-      });
-
-      if (form.consultationRequest) {
-        trackEvent('consultation_request', {
-          category: 'contact',
-          label: form.email,
-        });
-      }
-
-      // Simulated clean async submission handler (can plug into SendGrid, Resend, or API route)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setIsSubmitted(true);
-    } catch {
-      setSubmitError('Unable to send brief right now. Please message directly on WhatsApp.');
-    } finally {
-      setIsSubmitting(false);
+    if (form.consultationRequest) {
+      trackEvent('consultation_request', { category: 'contact' });
     }
+
+    // The enquiry is delivered over WhatsApp: open the chat with the brief
+    // pre-filled. Must run synchronously in the submit handler so browsers
+    // don't treat it as a pop-up. The success panel repeats the link in case
+    // the new tab was blocked.
+    const url = buildWhatsAppUrl(form);
+    setWhatsAppUrl(url);
+    window.open(url, '_blank', 'noopener,noreferrer');
+    setIsSubmitted(true);
   };
 
   const handleWhatsAppClick = () => {
@@ -151,17 +165,14 @@ export default function Contact() {
         {/* Section Header */}
         <div className="mb-16 md:mb-24">
           <ScrollReveal direction="up">
-            <div className="flex items-center gap-4 mb-4">
-              <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA]">
-                08 &mdash; ENGAGE
-              </span>
-              <div className="h-px w-16 bg-[#A78BFA]/40" />
-            </div>
+            <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-4">
+              {hasPublishedWork ? '08' : '07'} &mdash; CONTACT
+            </span>
             <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-light text-[#F5F5F5] uppercase leading-[0.98]">
               {contactContent.heading}
             </h2>
             <p className="mt-6 text-xl text-[#A0A0A0] font-light">
-              {contactContent.subheading} Brief our directors in Kerala or coordinate an international briefing call.
+              {contactContent.subheading} Tell us what you need and we will reply with clear next steps.
             </p>
           </ScrollReveal>
         </div>
@@ -176,12 +187,23 @@ export default function Contact() {
                   <CheckCircle2 className="h-8 w-8" />
                 </div>
                 <h3 className="font-display text-3xl font-light text-[#F5F5F5] uppercase">
-                  Brief Received.
+                  One last step.
                 </h3>
                 <p className="max-w-md mx-auto text-sm text-[#A0A0A0] leading-relaxed">
-                  Thank you, <span className="text-[#F5F5F5]">{form.name}</span>. An AN FOCUS project director will review your requirements and respond via email or WhatsApp within 24 business hours.
+                  Thank you, <span className="text-[#F5F5F5]">{form.name}</span>. Your enquiry is ready in WhatsApp &mdash; press send there and we will reply with next steps.
                 </p>
-                <div className="pt-4">
+                <div>
+                  <a
+                    href={whatsAppUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-colors"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    <span>Open WhatsApp</span>
+                  </a>
+                </div>
+                <div className="pt-2">
                   <button
                     type="button"
                     onClick={() => {
@@ -190,7 +212,7 @@ export default function Contact() {
                     }}
                     className="text-xs font-mono uppercase tracking-[0.2em] text-[#A78BFA] hover:underline"
                   >
-                    Submit another brief &rarr;
+                    Send another enquiry &rarr;
                   </button>
                 </div>
               </div>
@@ -198,17 +220,10 @@ export default function Contact() {
               <form onSubmit={handleSubmit} noValidate className="space-y-6">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-2">
                   <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A0A0A0]/60">
-                    PROJECT INTAKE DOSSIER
+                    Tell us about your project
                   </span>
-                  <span className="font-mono text-xs text-[#A78BFA]">* Required Fields</span>
+                  <span className="font-mono text-xs text-[#A78BFA]">* Required</span>
                 </div>
-
-                {submitError && (
-                  <div className="p-4 bg-red-950/40 border border-red-500/30 text-red-200 text-xs rounded-sm flex items-center gap-2">
-                    <AlertCircle className="h-4 w-4 shrink-0" />
-                    <span>{submitError}</span>
-                  </div>
-                )}
 
                 {/* Name & Company */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -267,20 +282,16 @@ export default function Contact() {
 
                   <div>
                     <label htmlFor="phone" className="block font-mono text-xs uppercase tracking-wider text-[#F5F5F5] mb-2">
-                      Phone with Country Code *
+                      Phone (optional)
                     </label>
                     <input
                       id="phone"
                       type="tel"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder="+91 9895401085 / +971..."
-                      className={`w-full bg-[#080808] border px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors ${errors.phone ? 'border-red-500/60' : 'border-white/[0.12]'
-                        }`}
+                      placeholder="+91 ..."
+                      className="w-full bg-[#080808] border border-white/[0.12] px-4 py-3 text-sm text-[#F5F5F5] placeholder-[#A0A0A0]/40 rounded-sm focus:outline-none focus:border-[#A78BFA] transition-colors"
                     />
-                    {errors.phone && (
-                      <span className="text-[11px] text-red-400 mt-1 block">{errors.phone}</span>
-                    )}
                   </div>
                 </div>
 
@@ -303,7 +314,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="budget" className="block font-mono text-xs uppercase tracking-wider text-[#F5F5F5] mb-2">
-                      Estimated Investment
+                      Budget
                     </label>
                     <select
                       id="budget"
@@ -321,7 +332,7 @@ export default function Contact() {
 
                   <div>
                     <label htmlFor="timeline" className="block font-mono text-xs uppercase tracking-wider text-[#F5F5F5] mb-2">
-                      Target Delivery
+                      Timeline
                     </label>
                     <select
                       id="timeline"
@@ -341,7 +352,7 @@ export default function Contact() {
                 {/* Message / Brief */}
                 <div>
                   <label htmlFor="message" className="block font-mono text-xs uppercase tracking-wider text-[#F5F5F5] mb-2">
-                    Project Brief &amp; Goals *
+                    About your project *
                   </label>
                   <textarea
                     id="message"
@@ -369,7 +380,7 @@ export default function Contact() {
                     className="mt-1 h-4 w-4 rounded-sm border-white/[0.2] bg-[#080808] text-[#A78BFA] focus:ring-[#A78BFA]"
                   />
                   <label htmlFor="consultation" className="text-xs text-[#A0A0A0] leading-relaxed select-none cursor-pointer">
-                    Request a complimentary 20-minute strategic consultation call with our Creative Director.
+                    I would like a free consultation call.
                   </label>
                 </div>
 
@@ -377,18 +388,14 @@ export default function Contact() {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-3 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-all duration-300 disabled:opacity-50"
+                    className="w-full inline-flex items-center justify-center gap-3 py-4 text-xs font-mono uppercase tracking-[0.2em] bg-[#A78BFA] text-[#080808] font-semibold rounded-sm hover:bg-[#C4B5FD] transition-all duration-300"
                   >
-                    {isSubmitting ? (
-                      <span>TRANSMITTING BRIEF...</span>
-                    ) : (
-                      <>
-                        <span>Transmit Project Brief</span>
-                        <Send className="h-4 w-4" />
-                      </>
-                    )}
+                    <span>Send enquiry on WhatsApp</span>
+                    <Send className="h-4 w-4" />
                   </button>
+                  <p className="mt-3 text-[11px] text-[#A0A0A0]/70 text-center">
+                    Opens WhatsApp with your details filled in. Prefer email? Write to {siteConfig.contact.email}.
+                  </p>
                 </div>
               </form>
             )}
@@ -400,7 +407,7 @@ export default function Contact() {
               {/* Direct Instant Channels Card */}
               <div className="p-8 bg-[#111111] border border-white/[0.1] rounded-sm space-y-6">
                 <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#A78BFA] block">
-                  DIRECT CONTACT CHANNELS
+                  Contact us directly
                 </span>
 
                 <div className="space-y-4">
@@ -416,7 +423,7 @@ export default function Contact() {
                       <MessageCircle className="h-5 w-5 text-[#A78BFA]" />
                       <div>
                         <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
-                          Instant WhatsApp
+                          WhatsApp
                         </span>
                         <span className="font-mono text-xs text-[#F5F5F5]">
                           +91 9895401085
@@ -432,7 +439,7 @@ export default function Contact() {
                     onClick={() =>
                       trackEvent('email_click', {
                         category: 'contact',
-                        label: siteConfig.contact.email,
+                        label: 'Contact email',
                       })
                     }
                     className="flex items-center justify-between p-4 bg-[#080808] border border-white/[0.08] hover:border-[#A78BFA] rounded-sm transition-all group"
@@ -441,7 +448,7 @@ export default function Contact() {
                       <Mail className="h-5 w-5 text-[#A78BFA]" />
                       <div>
                         <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
-                          Studio Dispatch
+                          Email
                         </span>
                         <span className="font-mono text-xs text-[#F5F5F5]">
                           {siteConfig.contact.email}
@@ -468,7 +475,7 @@ export default function Contact() {
                         <Phone className="h-5 w-5 text-[#A78BFA]" />
                         <div>
                           <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
-                            Studio Phone Line 0{idx + 1}
+                            Phone {idx + 1}
                           </span>
                           <span className="font-mono text-xs text-[#F5F5F5]">{phone}</span>
                         </div>
@@ -494,7 +501,7 @@ export default function Contact() {
                       <InstagramIcon className="h-5 w-5 text-[#A78BFA]" />
                       <div>
                         <span className="block font-mono text-[10px] uppercase tracking-wider text-[#A0A0A0]/60">
-                          Official Feed
+                          Instagram
                         </span>
                         <span className="font-mono text-xs text-[#F5F5F5]">
                           {siteConfig.contact.instagram}
@@ -509,13 +516,13 @@ export default function Contact() {
               {/* Geographic Coordinates Spec */}
               <div className="p-8 bg-[#111111] border border-white/[0.1] rounded-sm">
                 <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#A0A0A0]/60 block mb-2">
-                  GEO LOCATION
+                  Location
                 </span>
                 <h4 className="font-display text-xl font-light text-[#F5F5F5] uppercase">
-                  Kerala, India &mdash; Global Engagements
+                  Kerala, India &mdash; working worldwide
                 </h4>
                 <p className="mt-3 text-xs text-[#A0A0A0] leading-relaxed">
-                  Calls synchronized across IST, GST (Dubai), GMT, and EST. Billing and commercial contracts supported in INR, USD, and AED.
+                  We plan calls across time zones and quote in INR, USD or AED.
                 </p>
               </div>
             </ScrollReveal>

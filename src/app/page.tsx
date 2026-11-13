@@ -9,6 +9,7 @@ import About from '@/components/sections/About';
 import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import { siteConfig } from '@/config/site';
 
 export default function HomePage() {
@@ -19,7 +20,8 @@ export default function HomePage() {
     name: 'AN FOCUS',
     alternateName: 'A.N. Industries - AN FOCUS Studio',
     url: siteConfig.url,
-    logo: `${siteConfig.url}/og-image.jpg`,
+    logo: `${siteConfig.url}/logo-icon.png`,
+    image: `${siteConfig.url}/og-image.jpg`,
     description: siteConfig.description,
     address: {
       '@type': 'PostalAddress',
@@ -106,6 +108,8 @@ export default function HomePage() {
 
       {/* Global Footer */}
       <Footer />
+
+      <WhatsAppButton />
     </>
   );
 }

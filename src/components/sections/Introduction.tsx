@@ -15,18 +15,11 @@ export default function Introduction() {
       className="relative w-full bg-[#080808] py-28 md:py-40 px-6 md:px-12 lg:px-20 border-b border-white/[0.08]"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Tag */}
-        <ScrollReveal direction="up">
-          <div className="flex items-center gap-4 mb-10">
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA]">
-              01 &mdash; STUDIO MANIFESTO
-            </span>
-            <div className="h-px w-16 bg-[#A78BFA]/40" />
-          </div>
-        </ScrollReveal>
-
         {/* Big Editorial Headline */}
         <ScrollReveal direction="up" delay={100}>
+          <span className="block font-mono text-xs uppercase tracking-[0.3em] text-[#A78BFA] mb-10">
+            01 &mdash; THE STUDIO
+          </span>
           <h2 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-[-0.02em] leading-[1.05] text-[#F5F5F5] uppercase whitespace-pre-line max-w-5xl">
             {introContent.heading}
           </h2>
