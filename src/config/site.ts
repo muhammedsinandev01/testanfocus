@@ -28,6 +28,12 @@ export const siteConfig = {
   booking: {
     url: 'https://booking.anfocus.in',
     label: 'Book Event',
+    // Event currently on sale. Every "Book tickets" button opens this page
+    // straight at its ticket (tier) list. Update both lines for the next
+    // event; leave them empty when nothing is on sale and the buttons fall
+    // back to the booking site's home page.
+    ticketsUrl: 'https://booking.anfocus.in/events/agneya-the-amritha-experience/#tickets' as string,
+    ticketsLabel: 'Get Tickets – Agneya, 26 Dec' as string,
   },
 
   social: {
@@ -35,6 +41,13 @@ export const siteConfig = {
     facebook: 'https://www.facebook.com/profile.php?id=61591709681753',
   },
 } as const;
+
+// Where ticket buttons send customers: the on-sale event's ticket list, or
+// the booking home page when no event is set.
+export const ticketBooking = {
+  url: siteConfig.booking.ticketsUrl || siteConfig.booking.url,
+  label: siteConfig.booking.ticketsLabel || 'Book Events / Tickets',
+};
 
 // ============================================================================
 // SEO Metadata per page/section

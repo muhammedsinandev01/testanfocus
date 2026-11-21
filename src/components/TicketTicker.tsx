@@ -7,7 +7,7 @@
 // slides by exactly one copy's width, so the loop has no visible jump.
 // ============================================================================
 
-import { siteConfig } from '@/config/site';
+import { siteConfig, ticketBooking } from '@/config/site';
 import { trackEvent } from '@/lib/analytics';
 
 // How many times the message repeats inside one copy — enough to fill the
@@ -38,7 +38,7 @@ function TickerCopy({ hidden = false }: { hidden?: boolean }) {
 export default function TicketTicker() {
   return (
     <a
-      href={siteConfig.booking.url}
+      href={ticketBooking.url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Book your tickets at ${siteConfig.booking.url.replace(/^https?:\/\//, '')}`}

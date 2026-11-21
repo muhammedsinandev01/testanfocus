@@ -8,7 +8,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { navLinks, siteConfig } from '@/config/site';
+import { navLinks, siteConfig, ticketBooking } from '@/config/site';
 import { trackEvent } from '@/lib/analytics';
 import { ArrowUp } from 'lucide-react';
 import { InstagramIcon, FacebookIcon } from '@/components/ui/SocialIcons';
@@ -147,7 +147,7 @@ export default function Footer() {
                 {siteConfig.contact.phones[0]}
               </a>
               <a
-                href="https://booking.anfocus.in"
+                href={ticketBooking.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-[#B48BDF] hover:text-[#CFB8EC] transition-colors"

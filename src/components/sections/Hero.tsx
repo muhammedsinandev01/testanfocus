@@ -7,7 +7,7 @@
 // ============================================================================
 
 import Image from 'next/image';
-import { heroContent } from '@/config/site';
+import { heroContent, ticketBooking } from '@/config/site';
 import { heroMedia, hasPublishedWork } from '@/config/media';
 import { trackEvent } from '@/lib/analytics';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
@@ -117,18 +117,18 @@ export default function Hero() {
           </a>
 
           <a
-            href="https://booking.anfocus.in"
+            href={ticketBooking.url}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() =>
               trackEvent('cta_click', {
                 category: 'hero',
-                label: 'Book Events / Tickets',
+                label: ticketBooking.label,
               })
             }
             className="group relative inline-flex items-center justify-center px-8 py-4 text-xs font-mono uppercase tracking-[0.2em] text-[#F5F5F5] border border-[#B48BDF]/50 bg-[#B48BDF]/10 rounded-sm hover:bg-[#B48BDF]/20 hover:border-[#B48BDF] transition-all duration-300"
           >
-            <span>Book Events / Tickets</span>
+            <span>{ticketBooking.label}</span>
             <ArrowUpRight className="ml-2 h-4 w-4 text-[#B48BDF] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </a>
 

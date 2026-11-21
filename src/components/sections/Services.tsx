@@ -6,7 +6,7 @@
 // included services tags, media, and tailored CTAs.
 // ============================================================================
 
-import { services } from '@/config/site';
+import { services, ticketBooking } from '@/config/site';
 import { serviceMedia } from '@/config/media';
 import { trackEvent } from '@/lib/analytics';
 import ScrollReveal from '@/components/ui/ScrollReveal';
@@ -113,7 +113,7 @@ export default function Services() {
 
                         {service.id === 'events' && (
                           <a
-                            href="https://booking.anfocus.in"
+                            href={ticketBooking.url}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() =>
