@@ -7,12 +7,17 @@
 // ============================================================================
 
 import Image from 'next/image';
-import { heroContent, ticketBooking } from '@/config/site';
+import { featuredEvent, heroContent, ticketBooking } from '@/config/site';
 import { heroMedia, hasPublishedWork } from '@/config/media';
 import { trackEvent } from '@/lib/analytics';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import FeaturedEvent from '@/components/sections/FeaturedEvent';
 
 export default function Hero() {
+  // While an event is on sale it takes over the hero; the brand hero below
+  // returns automatically once booking.ticketsUrl is cleared.
+  if (featuredEvent.show) return <FeaturedEvent />;
+
   return (
     <section
       id="hero"

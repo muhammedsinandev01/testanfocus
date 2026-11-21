@@ -49,6 +49,34 @@ export const ticketBooking = {
   label: siteConfig.booking.ticketsLabel || 'Book Events / Tickets',
 };
 
+// Event card shown at the top of the landing page. It only appears while
+// booking.ticketsUrl is set, so clearing that line hides it too. Copy the
+// details from the event page on booking.anfocus.in. The poster must be
+// hosted under booking.anfocus.in/media/ (allowed in next.config.ts).
+export const featuredEvent = {
+  show: Boolean(siteConfig.booking.ticketsUrl),
+  status: 'On sale now',
+  title: 'Agneya – The Amritha Experience',
+  tagline: 'Amritha Rajan live in Thiruvananthapuram',
+  date: 'Sat, 26 Dec 2026',
+  time: '7:00 PM',
+  venue: 'Al Saj Open Ground, Kazhakkoottam, Thiruvananthapuram',
+  poster:
+    'https://booking.anfocus.in/media/events/9e57e011-6659-43bb-bd9a-5ed45d987bb2/poster/agneya-poster_vX6Ls9g_cASajZ8.jpg',
+  posterAlt: 'Agneya – The Amritha Experience poster',
+  // Softly blurred photo behind the hero. A landscape shot works best.
+  background:
+    'https://booking.anfocus.in/media/events/9e57e011-6659-43bb-bd9a-5ed45d987bb2/gallery/IMG_3819_RpDYnVw.jpg',  tiers: [
+    { name: 'VVIP', price: '₹1499' },
+    { name: 'VIP', price: '₹1199' },
+    { name: 'Platinum', price: '₹899' },
+    { name: 'Gold', price: '₹699' },
+    { name: 'Silver', price: '₹499' },
+  ],
+  priceFrom: '₹499',
+  note: 'Pay by UPI, card or netbanking. Tickets arrive on WhatsApp and email.',
+};
+
 // ============================================================================
 // SEO Metadata per page/section
 // ============================================================================
